@@ -1,9 +1,9 @@
 <div align="center">
 
-#  Cursed Tomorrow
+# Cursed Tomorrow
 ### A platforming descent into the atmospheric unknown.
 
-[![CI](https://img.shields.io/github/actions/workflow/status/AhmadHassan-BTed/Cursed-Tomorrow/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/AhmadHassan-BTed/Cursed-Tomorrow/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/AhmadHassan-BTed/CursedTomorrow/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/AhmadHassan-BTed/CursedTomorrow/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-gray.svg?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0--alpha-black.svg?style=flat-square)](CHANGELOG.md)
 [![C++](https://img.shields.io/badge/Language-C%2B%2B17-blue.svg?style=flat-square&logo=c%2B%2B)](https://en.cppreference.com/w/cpp/17)
@@ -17,23 +17,26 @@
 
 </div>
 
-##  Overview
+## Overview
 
 The core of *Cursed Tomorrow* lies in its simplicity and the weight of its atmosphere. Every movement, jump, and collision is tuned to resonate with the player's experience of navigating a world that feels both fragile and hostile.
 
 ### Core Pillars
+
 - **Atmospheric Isolation**: A world designed to feel empty yet occupied.
 - **Precision Mechanics**: Character movement that respects physics and player intent.
 - **Modular Design**: A robust C++ foundation built for extensibility and performance.
 
 ---
 
-##  Visual Showcase
+## Visual Showcase
 
 <div align="center">
 
 **The World of Tomorrow**
+
 ![Main Menu](docs/assets/screenshots/main_menu.jpeg)
+
 *The gateway into the descent.*
 
 <br>
@@ -52,7 +55,7 @@ The core of *Cursed Tomorrow* lies in its simplicity and the weight of its atmos
 
 ---
 
-##  Architecture Documentation
+## Architecture Documentation
 
 The project architecture prioritizes decoupling and clear ownership. It is built to scale from a simple prototype to a complex production-grade game.
 
@@ -88,9 +91,10 @@ The interaction between modules is strictly managed through the `CursedTomorrow`
 
 ---
 
-##  Internal Systems
+## Internal Systems
 
 ### Request & Data Flow
+
 The data flow follows a strict unidirectional pattern during the update phase to ensure deterministic behavior.
 
 ```mermaid
@@ -131,29 +135,51 @@ sequenceDiagram
 
 ---
 
-##  Development Workflow
+## Development Workflow
 
 The development process is designed to be contributor-friendly while maintaining high engineering standards.
 
 <details>
 <summary><b>1. Environment Setup</b></summary>
 
-Ensure a C++17 compiler and CMake (3.15+) are installed. Raylib is the primary dependency and can be automatically fetched during the build process.
+Ensure a C++17 compiler and CMake (3.15+) are installed. Raylib is the primary dependency.
+
+By default, CMake expects Raylib to be installed on the system. To fetch Raylib automatically during configuration, use the `-D FETCH_RAYLIB=ON` option.
+
 </details>
 
 <details>
-<summary><b>2. Build Pipeline</b></summary>
+<summary><b>2. Build Pipeline with Automatically Fetched Raylib</b></summary>
 
 ```bash
-# Configure with external Raylib fetch
+# Configure and fetch Raylib automatically
 cmake -B build -D FETCH_RAYLIB=ON
 
 # Build the project
 cmake --build build --config Release
 
-# Run Unit Tests
+# Run unit tests
 ctest --test-dir build
 ```
+
+</details>
+
+<details>
+<summary><b>3. Build Pipeline with System-Installed Raylib</b></summary>
+
+If Raylib is already installed on your system, configure the project without the `FETCH_RAYLIB` option:
+
+```bash
+# Configure using the system-installed Raylib package
+cmake -B build
+
+# Build the project
+cmake --build build --config Release
+
+# Run unit tests
+ctest --test-dir build
+```
+
 </details>
 
 ### Technical Pipeline
@@ -169,7 +195,7 @@ graph LR
 
 ---
 
-##  Academic Resources
+## Academic Resources
 
 This project is supported by extensive documentation and presentation materials detailing its design and theoretical foundations.
 
@@ -180,7 +206,7 @@ This project is supported by extensive documentation and presentation materials 
 
 ---
 
-##  Credits & Vision
+## Credits & Vision
 
 This project is a solo endeavor by **Ahmad Hassan (B-Ted)**. It represents a commitment to clean code, intentional design, and the pursuit of digital atmosphere.
 
