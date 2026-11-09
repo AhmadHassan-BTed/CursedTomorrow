@@ -305,6 +305,7 @@ void Game::HandleInput() {
 void Game::Draw() {
     BeginDrawing();
     ClearBackground(BLACK);
+    auto& rm = ResourceManager::GetInstance();
 
     switch (currentState) {
         case GameState::MainScreen: DrawMainScreen(); break;
