@@ -9,6 +9,7 @@ option(FETCH_RAYLIB "Fetch raylib from GitHub" OFF)
 include_directories(include)
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")
+list(FILTER SOURCES EXCLUDE REGEX "src/tests/.*")
 file(GLOB_RECURSE HEADERS "include/*.hpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
